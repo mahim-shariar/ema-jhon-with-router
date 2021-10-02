@@ -1,20 +1,34 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import useProducts from '../hooks/useProduct';
 import './OrderReview.css'
 import useCart from '../hooks/useCart';
 import Cart from '../Cart/Cart';
 import Order from '../Order/Order';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { addToDb, deleteFromDb } from '../../utilities/fakedb';
+import { clearTheCart, deleteFromDb } from '../../utilities/fakedb';
+import { useHistory } from 'react-router';
+import NoOrder from '../NoOrder/NoOrder';
 
 const OrderReview = () => {
-    let [products, setProducts] = useProducts();
+    let [products] = useProducts();
     let [cart ,setCart] = useCart(products);
+    let history = useHistory();
     console.log(cart);
     let hendleRemove = key =>{
         let newCart = cart.filter(item => item.key !== key)
         setCart(newCart);
         deleteFromDb(key);
+    }
+    let handlePlaceOrder = () =>{
+        if(!cart.length){
+            <NoOrder></NoOrder>
+            history.push('/noOrder')
+        }
+        else{
+            history.push('/placeOrder')
+            setCart([]);
+            clearTheCart()
+        }
     }
     return (
         <div>
@@ -27,6 +41,9 @@ const OrderReview = () => {
                
                 <div className="summary" >
                     <Cart cart={cart} ></Cart>
+                    <div> 
+                        <button onClick={handlePlaceOrder} className="btn btn-warning mb-3 " > place order </button>    
+                    </div>
                 </div>
             </div>
         </div>

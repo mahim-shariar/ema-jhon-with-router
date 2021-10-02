@@ -7,6 +7,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NotFund from './components/Notfound/NotFund';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PlaceOrder from './components/placeOrder/PlaceOrder';
+import NoOrder from './components/NoOrder/NoOrder';
 
 function App() {
   return (
@@ -25,6 +27,12 @@ function App() {
           </Route>
           <Route path='/orders'>
             <OrderReview></OrderReview>
+          </Route>
+          <Route path="/placeOrder">
+            <PlaceOrder></PlaceOrder>
+          </Route>
+          <Route path='/noOrder' >
+            <NoOrder></NoOrder>
           </Route>
           <Route exact path="*">
             <NotFund></NotFund>
