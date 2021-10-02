@@ -1,0 +1,16 @@
+.img-fild{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cart-contaienr{
+    border: 1px solid gainsboro;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}
+.txt-fild{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}

@@ -1,0 +1,9 @@
+.container-fild{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.summary{
+    line-height: 10px;
+    text-align: center;
+    border: 1px solid rgb(211, 199, 199) ;
+}
