@@ -25,14 +25,14 @@ const OrderReview = () => {
             history.push('/noOrder')
         }
         else{
-            history.push('/placeOrder')
-            setCart([]);
-            clearTheCart()
+            history.push('/shipping')
+            // setCart([]);
+            // clearTheCart()
         }
     }
     return (
         <div>
-            <div className="container-fild container " >
+            <div className="container container-fild " >
             <div>
                 {
                     cart.map( item => <Order key={item.key} hendleRemove={hendleRemove} cart={item}></Order>  )
@@ -42,7 +42,7 @@ const OrderReview = () => {
                 <div className="summary" >
                     <Cart cart={cart} ></Cart>
                     <div> 
-                        <button onClick={handlePlaceOrder} className="btn btn-warning mb-3 " > place order </button>    
+                        <button onClick={handlePlaceOrder} className="mb-3 btn btn-warning " > Proceed to shipping </button>    
                     </div>
                 </div>
             </div>
